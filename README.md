@@ -36,5 +36,15 @@ brooklyn-barbearia/
 - Google Maps Embed API
 
 ---
-**Projeto desenvolvido para a Brooklyn Barbearia — Gaspar/SC**
-*Equipe: Guilherme, Júlio, Mayra e João — UNIVALI 2026*
+
+### Informações do Projeto (HANDS ON WORK V - UNIVALI)
+
+**Entidade parceira:** Brooklyn Barbearia (MEI)  
+**Responsável:** Henri Ribeiro Garcia  
+**Localização:** Gaspar, SC  
+
+**Integrantes:**
+- Guilherme dos Santos Machado
+- Julio Cesar Milan Riera
+- João Teles da Silva Neto
+- Mayra Ribeiro
