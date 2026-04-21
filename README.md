@@ -1,49 +1,52 @@
-# Brooklyn Barbearia — Site Premium
+# Brooklyn Barbearia
 
-Site institucional desenvolvido como Projeto Integrador Extensionista — UNIVALI 2026. Este projeto foi finalizado com design premium, responsividade total e integração dinâmica com Google Maps.
+🔗 **[Acessar a aplicação em produção](https://guilh3rme1406.github.io/HOW-V-UNIVALI/)**
 
-## ✨ Funcionalidades
+Site institucional desenvolvido como requisito para a disciplina de Projeto Integrador Extensionista (Hands On Work V) da UNIVALI (2026). O objetivo do projeto foi criar uma presença digital funcional e responsiva para um negócio local.
 
-- **Design Premium**: Identidade visual reformulada em tons de Dark Chrome e Azul Profundo, alinhada ao logotipo oficial.
-- **Responsividade**: Site totalmente adaptado para dispositivos móveis, tablets e desktops.
-- **Agendamento Facilitado**: Botão flutuante do WhatsApp sempre acessível e links de agendamento em pontos estratégicos.
-- **Localização Inteligente**: Mapa dinâmico do Google Maps integrado e botões de localização que guiam o usuário diretamente para o mapa.
-- **Galeria Real**: Implementação de fotos reais dos trabalhos realizados na barbearia.
-- **Copyright Dinâmico**: O ano no rodapé atualiza automaticamente.
+## Funcionalidades
 
-## 📂 Estrutura de Arquivos
+- **Responsividade:** Layout adaptado para mobile, tablets e desktops.
+- **Integração de Mapas:** Uso da API do Google Maps (Embed) para renderização da localização do estabelecimento.
+- **Agendamento:** Redirecionamento direto para a API do WhatsApp.
+- **Identidade Visual:** Aplicação de tema escuro (Dark Mode) padronizado com as cores da marca.
+- **Navegação Dinâmica:** Implementação de scroll suave e galeria de imagens otimizada.
 
-```
+## Tecnologias Utilizadas
+
+- **HTML5** (Semântica)
+- **CSS3** (Variáveis, Flexbox, CSS Grid)
+- **JavaScript Vanilla** (Intersection Observer, manipulação da DOM)
+
+## Estrutura do Projeto
+
+```text
 brooklyn-barbearia/
-├── index.html          ← Estrutura principal e conteúdo
+├── index.html      # Estrutura e conteúdo da página
 ├── css/
-│   └── style.css       ← Estilização e design (Tema Dark)
+│   └── style.css   # Regras de estilo da aplicação
 ├── js/
-│   └── main.js         ← Lógica de navegação e interatividade
-└── images/             ← Assets visuais e fotos reais
+│   └── main.js     # Lógica de interface e interatividade
+└── images/         # Assets visuais estáticos
 ```
 
-## 🚀 Como Visualizar Localmente
+## Como executar localmente
 
-1. Clone ou baixe este repositório.
-2. Abra o arquivo `index.html` em qualquer navegador moderno.
-
-## 🛠️ Tecnologias Utilizadas
-
-- HTML5 Semântico
-- CSS3 (Variáveis, Flexbox, Grid, Animações)
-- JavaScript Vanilla (Intersection Observer, Scroll handling)
-- Google Maps Embed API
+1. Realize o clone deste repositório:
+   ```bash
+   git clone https://github.com/guilh3rme1406/HOW-V-UNIVALI.git
+   ```
+2. Abra o arquivo `index.html` em seu navegador de preferência. Nenhuma dependência externa ou processo de build é necessário.
 
 ---
 
-### Informações do Projeto (HANDS ON WORK V - UNIVALI)
+## Informações Acadêmicas
 
-**Entidade parceira:** Brooklyn Barbearia (MEI)  
-**Responsável:** Henri Ribeiro Garcia  
-**Localização:** Gaspar, SC  
+**Disciplina:** Hands On Work V - UNIVALI  
+**Entidade Parceira:** Brooklyn Barbearia (MEI) — Gaspar, SC  
+**Responsável (Parceiro):** Henri Ribeiro Garcia  
 
-**Integrantes:**
+**Equipe Desenvolvedora:**
 - Guilherme dos Santos Machado
 - Julio Cesar Milan Riera
 - João Teles da Silva Neto
