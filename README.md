@@ -1,62 +1,40 @@
-# Brooklyn Barbearia — Site
+# Brooklyn Barbearia — Site Premium
 
-Site institucional desenvolvido como Projeto Integrador Extensionista — UNIVALI 2026.
+Site institucional desenvolvido como Projeto Integrador Extensionista — UNIVALI 2026. Este projeto foi finalizado com design premium, responsividade total e integração dinâmica com Google Maps.
 
-## Estrutura de arquivos
+## ✨ Funcionalidades
+
+- **Design Premium**: Identidade visual reformulada em tons de Dark Chrome e Azul Profundo, alinhada ao logotipo oficial.
+- **Responsividade**: Site totalmente adaptado para dispositivos móveis, tablets e desktops.
+- **Agendamento Facilitado**: Botão flutuante do WhatsApp sempre acessível e links de agendamento em pontos estratégicos.
+- **Localização Inteligente**: Mapa dinâmico do Google Maps integrado e botões de localização que guiam o usuário diretamente para o mapa.
+- **Galeria Real**: Implementação de fotos reais dos trabalhos realizados na barbearia.
+- **Copyright Dinâmico**: O ano no rodapé atualiza automaticamente.
+
+## 📂 Estrutura de Arquivos
 
 ```
 brooklyn-barbearia/
-├── index.html          ← página principal (edite aqui o conteúdo)
+├── index.html          ← Estrutura principal e conteúdo
 ├── css/
-│   └── style.css       ← estilos (não precisa mexer)
+│   └── style.css       ← Estilização e design (Tema Dark)
 ├── js/
-│   └── main.js         ← comportamentos (não precisa mexer)
-└── images/             ← coloque as fotos aqui
-    └── (suas fotos aqui)
+│   └── main.js         ← Lógica de navegação e interatividade
+└── images/             ← Assets visuais e fotos reais
 ```
 
-## Como adicionar as fotos
+## 🚀 Como Visualizar Localmente
 
-1. Salve suas fotos na pasta `images/` com nomes simples, sem espaços.
-   Exemplo: `foto1.jpg`, `foto2.jpg`, `henri.jpg`, `espaco.jpg`
+1. Clone ou baixe este repositório.
+2. Abra o arquivo `index.html` em qualquer navegador moderno.
 
-2. Abra o `index.html` em um editor de texto (ex: VS Code, Bloco de Notas).
+## 🛠️ Tecnologias Utilizadas
 
-3. Procure os trechos com o comentário `INSTRUÇÃO:` e substitua pelo código indicado.
-
-### Galeria (3 fotos)
-Substitua cada bloco de `<div class="gallery-item">` com placeholder por:
-```html
-<div class="gallery-item">
-  <img src="images/foto1.jpg" alt="Trabalho realizado na Brooklyn Barbearia" loading="lazy" />
-</div>
-```
-
-### Foto da seção Sobre
-Substitua o `<div class="about-photo-placeholder">` por:
-```html
-<img src="images/henri.jpg" alt="Henri Ribeiro Garcia, fundador da Brooklyn Barbearia" />
-```
-
-### Logo na navbar
-Descomente a linha do `<img>` na navbar e apague a linha do `<div class="barber-pole">` logo abaixo.
-```html
-<img src="images/logo.png" alt="Brooklyn Barbearia" class="nav-logo" />
-```
-
-## Como publicar no GitHub Pages
-
-1. Crie um repositório no GitHub (pode ser público ou privado).
-2. Faça upload de todos os arquivos deste projeto para o repositório.
-3. No repositório, vá em **Settings → Pages**.
-4. Em **Source**, selecione `main branch` e a pasta `/ (root)`.
-5. Salve. Em alguns minutos o site estará disponível em:
-   `https://seuusuario.github.io/nome-do-repositorio/`
-
-## Para atualizar conteúdo no futuro
-
-Basta editar o arquivo `index.html` diretamente no GitHub (clique no arquivo, depois no lápis ✏️).
-Não precisa saber programar para trocar textos, preços ou links.
+- HTML5 Semântico
+- CSS3 (Variáveis, Flexbox, Grid, Animações)
+- JavaScript Vanilla (Intersection Observer, Scroll handling)
+- Google Maps Embed API
 
 ---
-Desenvolvido por: Guilherme, Júlio, Mayra e João — UNIVALI 2026
+**Projeto desenvolvido para a Brooklyn Barbearia — Gaspar/SC**
+*Equipe: Guilherme, Júlio, Mayra e João — UNIVALI 2026*
