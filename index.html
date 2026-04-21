@@ -27,8 +27,7 @@
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#mapa">Localização</a></li>
       <li>
-        <a href="https://wa.me/5547996811600?text=Olá!%20Quero%20agendar%20um%20horário%20na%20Brooklyn%20Barbearia."
-          class="nav-cta" target="_blank" rel="noopener">Agendar</a>
+        <a href="#agendar" class="nav-cta">Solicitar Horário</a>
       </li>
     </ul>
 
@@ -58,9 +57,8 @@
       <p class="hero-subtitle">Estilo. Tradição. Confiança.</p>
 
       <div class="hero-actions">
-        <a href="https://wa.me/5547996811600?text=Olá!%20Quero%20agendar%20um%20horário%20na%20Brooklyn%20Barbearia."
-          class="btn-primary" target="_blank" rel="noopener">
-          Agendar pelo WhatsApp
+        <a href="#agendar" class="btn-primary">
+          <span style="font-size: 1.3em; margin-right: 8px; filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));">💈</span> Solicite seu Horário
         </a>
 
         <a href="#servicos" class="btn-secondary">Ver serviços</a>
@@ -110,6 +108,131 @@
           <div class="service-price">R$ 10 <span>/ por vez</span></div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <section id="agendar">
+    <div class="container">
+      <p class="section-label">Rápido e fácil</p>
+      <h2 class="section-title">Solicite seu Agendamento</h2>
+      <div class="section-divider">
+        <div class="barber-pole" aria-hidden="true"></div>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="booking-wizard">
+        <!-- Step Indicators -->
+        <div class="wizard-steps">
+          <div class="wizard-step active" data-step="1">
+            <div class="wizard-step-number">1</div>
+            <div class="wizard-step-label">Serviço</div>
+          </div>
+          <div class="wizard-step-line"></div>
+          <div class="wizard-step" data-step="2">
+            <div class="wizard-step-number">2</div>
+            <div class="wizard-step-label">Data & Hora</div>
+          </div>
+          <div class="wizard-step-line"></div>
+          <div class="wizard-step" data-step="3">
+            <div class="wizard-step-number">3</div>
+            <div class="wizard-step-label">Confirmar</div>
+          </div>
+        </div>
+
+        <!-- Step 1: Service Selection -->
+        <div class="wizard-panel active" id="step-1">
+          <p class="wizard-panel-hint">Toque no serviço desejado</p>
+          <div class="booking-services-grid">
+            <button class="booking-service-card" data-service="Corte Masculino" data-price="40">
+              <div class="booking-service-icon">✂️</div>
+              <div class="booking-service-name">Corte Masculino</div>
+              <div class="booking-service-detail">Infantil e adulto</div>
+              <div class="booking-service-price">R$ 40</div>
+            </button>
+            <button class="booking-service-card" data-service="Barba" data-price="40">
+              <div class="booking-service-icon">🪒</div>
+              <div class="booking-service-name">Barba</div>
+              <div class="booking-service-detail">Navalha + toalha quente</div>
+              <div class="booking-service-price">R$ 40</div>
+            </button>
+            <button class="booking-service-card" data-service="Sobrancelha" data-price="10">
+              <div class="booking-service-icon">👁️</div>
+              <div class="booking-service-name">Sobrancelha</div>
+              <div class="booking-service-detail">Modelagem e aparagem</div>
+              <div class="booking-service-price">R$ 10</div>
+            </button>
+            <button class="booking-service-card" data-service="Corte + Barba" data-price="80">
+              <div class="booking-service-icon">💈</div>
+              <div class="booking-service-name">Corte + Barba</div>
+              <div class="booking-service-detail">Combo completo</div>
+              <div class="booking-service-price">R$ 80</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Date & Time -->
+        <div class="wizard-panel" id="step-2">
+          <div class="datetime-grid">
+            <div class="calendar-section">
+              <p class="wizard-panel-hint">Escolha a data</p>
+              <div class="calendar-header">
+                <button class="cal-nav" id="cal-prev" aria-label="Mês anterior">‹</button>
+                <span class="cal-month-year" id="cal-month-year"></span>
+                <button class="cal-nav" id="cal-next" aria-label="Próximo mês">›</button>
+              </div>
+              <div class="calendar-weekdays">
+                <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+              </div>
+              <div class="calendar-days" id="calendar-days"></div>
+            </div>
+            <div class="time-section">
+              <p class="wizard-panel-hint">Horários disponíveis</p>
+              <div class="time-slots" id="time-slots">
+                <p class="time-slots-empty">Selecione uma data primeiro</p>
+              </div>
+            </div>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn-secondary wizard-back" data-to="1">← Voltar</button>
+            <button class="btn-primary wizard-next disabled" id="btn-to-step3" disabled>Continuar →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Confirmation -->
+        <div class="wizard-panel" id="step-3">
+          <div class="confirmation-card">
+            <div class="confirmation-icon">📋</div>
+            <h3 class="confirmation-title">Resumo do Agendamento</h3>
+            <div class="confirmation-details">
+              <div class="confirmation-row">
+                <span class="confirmation-label">Serviço</span>
+                <span class="confirmation-value" id="confirm-service">—</span>
+              </div>
+              <div class="confirmation-row">
+                <span class="confirmation-label">Data</span>
+                <span class="confirmation-value" id="confirm-date">—</span>
+              </div>
+              <div class="confirmation-row">
+                <span class="confirmation-label">Horário</span>
+                <span class="confirmation-value" id="confirm-time">—</span>
+              </div>
+              <div class="confirmation-row">
+                <span class="confirmation-label">Valor</span>
+                <span class="confirmation-value confirm-price" id="confirm-price">—</span>
+              </div>
+            </div>
+            <a href="#" id="whatsapp-link" class="btn-whatsapp-confirm" target="_blank" rel="noopener">
+              <img src="images/whatsapp.png" alt="" style="width: 22px; height: 22px;" />
+              Enviar pelo WhatsApp
+            </a>
+            <p class="confirmation-note">Ao clicar, o WhatsApp abrirá com a mensagem pronta. O barbeiro confirmará sua
+              vaga.</p>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn-secondary wizard-back" data-to="2">← Voltar</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -245,15 +368,15 @@
                   <tbody>
                     <tr>
                       <td>Segunda</td>
-                      <td>14h às 19h</td>
+                      <td>14h às 19h30</td>
                     </tr>
                     <tr>
                       <td>Terça a Sexta</td>
-                      <td>09h às 19h</td>
+                      <td>09h às 19h30</td>
                     </tr>
                     <tr>
                       <td>Sábado</td>
-                      <td>07h às 14h</td>
+                      <td>07h às 14h30</td>
                     </tr>
                     <tr>
                       <td>Domingo</td>
@@ -293,7 +416,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/5547996811600?text=Olá!%20Quero%20agendar%20um%20horário%20na%20Brooklyn%20Barbearia."
+  <a href="https://wa.me/5547996811600?text=Ola!%20Quero%20solicitar%20um%20agendamento%20na%20Brooklyn%20Barbearia."
     class="whatsapp-float" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
     <img src="images/whatsapp.png" alt="WhatsApp" />
   </a>

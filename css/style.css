@@ -211,9 +211,17 @@ a {
   transition: transform 0.3s, opacity 0.3s;
 }
 
-.nav-toggle span:nth-child(1) { background: var(--red); }
-.nav-toggle span:nth-child(2) { background: var(--white); }
-.nav-toggle span:nth-child(3) { background: var(--blue-light); }
+.nav-toggle span:nth-child(1) {
+  background: var(--red);
+}
+
+.nav-toggle span:nth-child(2) {
+  background: var(--white);
+}
+
+.nav-toggle span:nth-child(3) {
+  background: var(--blue-light);
+}
 
 section {
   padding: 100px 40px;
@@ -793,6 +801,493 @@ footer {
   width: 14px;
 }
 
+/* ═══════════════════════════════════════════════
+   BOOKING WIZARD
+   ═══════════════════════════════════════════════ */
+
+#agendar {
+  background: var(--surface);
+}
+
+.booking-wizard {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Step indicators */
+.wizard-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 48px;
+}
+
+.wizard-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.wizard-step-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+
+.wizard-step.active .wizard-step-number,
+.wizard-step.done .wizard-step-number {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+  box-shadow: 0 0 20px rgba(209, 44, 44, 0.3);
+}
+
+.wizard-step.done .wizard-step-number {
+  background: #25D366;
+  border-color: #25D366;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+}
+
+.wizard-step-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.wizard-step.active .wizard-step-label,
+.wizard-step.done .wizard-step-label {
+  color: var(--text);
+}
+
+.wizard-step-line {
+  width: 80px;
+  height: 2px;
+  background: var(--border);
+  margin: 0 16px;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.wizard-step-line.done {
+  background: linear-gradient(90deg, #25D366, var(--red));
+}
+
+/* Panels */
+.wizard-panel {
+  display: none;
+  animation: fadeSlideIn 0.4s ease;
+}
+
+.wizard-panel.active {
+  display: block;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wizard-panel-hint {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Step 1: Service cards */
+.booking-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.booking-service-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 20px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  color: inherit;
+}
+
+.booking-service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(209, 44, 44, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.booking-service-card:hover {
+  border-color: rgba(209, 44, 44, 0.4);
+  transform: translateY(-3px);
+}
+
+.booking-service-card:hover::before {
+  opacity: 1;
+}
+
+.booking-service-card.selected {
+  border-color: var(--red);
+  background: rgba(209, 44, 44, 0.08);
+  box-shadow: 0 0 25px rgba(209, 44, 44, 0.15);
+}
+
+.booking-service-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 24px;
+  height: 24px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: white;
+  font-weight: bold;
+}
+
+.booking-service-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.booking-service-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.booking-service-detail {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.booking-service-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--silver);
+}
+
+/* Step 2: Calendar + Time */
+.datetime-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.calendar-section,
+.time-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cal-month-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+.cal-nav {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.cal-nav:hover {
+  background: var(--border);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 0;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+  color: var(--text);
+}
+
+.cal-day:hover:not(.disabled):not(.selected) {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cal-day.today {
+  border: 1px solid var(--blue-light);
+  color: var(--blue-light);
+}
+
+.cal-day.selected {
+  background: var(--red);
+  color: var(--white);
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(209, 44, 44, 0.3);
+}
+
+.cal-day.disabled {
+  color: var(--border);
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.cal-day.empty {
+  cursor: default;
+}
+
+/* Time slots */
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.time-slots-empty {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.time-slot {
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.time-slot:hover:not(.selected) {
+  border-color: rgba(209, 44, 44, 0.4);
+  background: rgba(209, 44, 44, 0.05);
+}
+
+.time-slot.selected {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(209, 44, 44, 0.25);
+}
+
+/* Wizard navigation */
+.wizard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.wizard-back,
+.wizard-next {
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wizard-next.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Step 3: Confirmation */
+.confirmation-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.confirmation-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.confirmation-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.confirmation-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.confirmation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.confirmation-row:last-child {
+  border-bottom: none;
+}
+
+.confirmation-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.confirmation-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.confirm-price {
+  color: var(--silver) !important;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+.btn-whatsapp-confirm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  background: #25D366;
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.btn-whatsapp-confirm:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+}
+
+.confirmation-note {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════
+   MEDIA QUERIES
+   ═══════════════════════════════════════════════ */
+
 @media (max-width: 900px) {
   section {
     padding: 80px 24px;
@@ -855,6 +1350,16 @@ footer {
     flex-direction: column;
     text-align: center;
   }
+
+  /* Booking wizard responsive */
+  .datetime-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wizard-step-line {
+    width: 40px;
+    margin: 0 8px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -869,6 +1374,35 @@ footer {
   .hero-actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* Booking wizard mobile */
+  .booking-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wizard-step-label {
+    font-size: 9px;
+  }
+
+  .wizard-step-number {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .wizard-step-line {
+    width: 24px;
+    margin: 0 4px;
+  }
+
+  .confirmation-card {
+    padding: 32px 20px;
+  }
+
+  .calendar-section,
+  .time-section {
+    padding: 16px;
   }
 }
 
