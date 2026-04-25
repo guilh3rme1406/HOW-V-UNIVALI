@@ -22,7 +22,6 @@
 
     <ul class="nav-links" id="nav-links">
       <li><a href="#inicio">Início</a></li>
-      <li><a href="#servicos">Serviços</a></li>
       <li><a href="#galeria">Galeria</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#mapa">Localização</a></li>
@@ -58,10 +57,12 @@
 
       <div class="hero-actions">
         <a href="#agendar" class="btn-primary">
-          <span style="font-size: 1.3em; margin-right: 8px; filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));">💈</span> Solicite seu Horário
+          <span
+            style="font-size: 1.3em; margin-right: 8px; filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));">💈</span>
+          Solicite seu Horário
         </a>
 
-        <a href="#servicos" class="btn-secondary">Ver serviços</a>
+        <a href="#galeria" class="btn-secondary">Ver galeria</a>
       </div>
 
       <div class="hero-badges">
@@ -76,42 +77,6 @@
       </div>
     </div>
   </section>
-  <section id="servicos">
-    <div class="container">
-      <p class="section-label">O que oferecemos</p>
-      <h2 class="section-title">Nossos Serviços</h2>
-      <div class="section-divider">
-        <div class="barber-pole" aria-hidden="true"></div>
-        <div class="divider-line"></div>
-      </div>
-
-      <div class="services-grid">
-
-        <div class="service-card">
-          <div class="service-icon">✂️</div>
-          <div class="service-name">Corte Masculino</div>
-          <div class="service-desc">Infantil e adulto, com tesoura e máquina. Acabamento preciso e moderno.</div>
-          <div class="service-price">R$ 40 <span>/ por corte</span></div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🪒</div>
-          <div class="service-name">Barba</div>
-          <div class="service-desc">Serviço completo com navalha, toalha quente e acabamento impecável.</div>
-          <div class="service-price">R$ 40 <span>/ por vez</span></div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">👁️</div>
-          <div class="service-name">Sobrancelha</div>
-          <div class="service-desc">Modelagem e aparagem de sobrancelhas e bigode com precisão.</div>
-          <div class="service-price">R$ 10 <span>/ por vez</span></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <section id="agendar">
     <div class="container">
       <p class="section-label">Rápido e fácil</p>
@@ -144,29 +109,43 @@
         <div class="wizard-panel active" id="step-1">
           <p class="wizard-panel-hint">Toque no serviço desejado</p>
           <div class="booking-services-grid">
+            <button class="booking-service-card booking-service-card--featured" data-service="Corte + Barba + Sobrancelha" data-price="80">
+              <div class="booking-service-badge">Combo Rei</div>
+              <div class="booking-service-name">Corte + Barba + Sobrancelha</div>
+              <div class="booking-service-detail">Pacote completo: corte, barba e sobrancelha</div>
+              <div class="booking-service-price">R$ 80</div>
+            </button>
+            <button class="booking-service-card booking-service-card--featured" data-service="Corte + Barba"
+              data-price="75">
+              <div class="booking-service-badge">Mais Pedido</div>
+              <div class="booking-service-name">Corte + Barba</div>
+              <div class="booking-service-detail">Corte completo + barba com navalha e toalha quente</div>
+              <div class="booking-service-price">R$ 75</div>
+            </button>
             <button class="booking-service-card" data-service="Corte Masculino" data-price="40">
-              <div class="booking-service-icon">✂️</div>
               <div class="booking-service-name">Corte Masculino</div>
               <div class="booking-service-detail">Infantil e adulto</div>
               <div class="booking-service-price">R$ 40</div>
             </button>
             <button class="booking-service-card" data-service="Barba" data-price="40">
-              <div class="booking-service-icon">🪒</div>
               <div class="booking-service-name">Barba</div>
               <div class="booking-service-detail">Navalha + toalha quente</div>
               <div class="booking-service-price">R$ 40</div>
             </button>
             <button class="booking-service-card" data-service="Sobrancelha" data-price="10">
-              <div class="booking-service-icon">👁️</div>
               <div class="booking-service-name">Sobrancelha</div>
               <div class="booking-service-detail">Modelagem e aparagem</div>
               <div class="booking-service-price">R$ 10</div>
             </button>
-            <button class="booking-service-card" data-service="Corte + Barba" data-price="80">
-              <div class="booking-service-icon">💈</div>
-              <div class="booking-service-name">Corte + Barba</div>
-              <div class="booking-service-detail">Combo completo</div>
-              <div class="booking-service-price">R$ 80</div>
+            <button class="booking-service-card" data-service="Corte + Sobrancelha" data-price="45">
+              <div class="booking-service-name">Corte + Sobrancelha</div>
+              <div class="booking-service-detail">Corte completo + modelagem de sobrancelha</div>
+              <div class="booking-service-price">R$ 45</div>
+            </button>
+            <button class="booking-service-card" data-service="Barba + Sobrancelha" data-price="45">
+              <div class="booking-service-name">Barba + Sobrancelha</div>
+              <div class="booking-service-detail">Barba completa + modelagem de sobrancelha</div>
+              <div class="booking-service-price">R$ 45</div>
             </button>
           </div>
         </div>
@@ -406,13 +385,14 @@
       <p class="footer-copy">
         &copy; <span id="year"></span> Brooklyn Barbearia · Gaspar/SC · Todos os direitos reservados
       </p>
-      <div class="footer-bar">
-        <img src="images/logo.jpg" alt="Logo Brooklyn Barbearia"
-          style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-right: 10px; border: 1px solid var(--border);" />
-        <span style="font-size: 12px; color: var(--muted); letter-spacing: 0.08em;">
+      <a href="https://github.com/guilh3rme1406/openBarber" target="_blank" rel="noopener" class="footer-bar" style="text-decoration: none; cursor: pointer;">
+        <svg height="28" viewBox="0 0 16 16" width="28" fill="var(--muted)" style="transition: fill 0.2s;">
+          <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+        <span style="font-size: 12px; color: var(--muted); letter-spacing: 0.08em; transition: color 0.2s;">
           Feito com carinho por estudantes da UNIVALI
         </span>
-      </div>
+      </a>
     </div>
   </footer>
 

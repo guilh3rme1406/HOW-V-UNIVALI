@@ -95,6 +95,14 @@ function goToStep(step) {
   document.querySelectorAll('.wizard-panel').forEach(p => p.classList.remove('active'));
   document.getElementById(`step-${step}`).classList.add('active');
 
+  // Smooth scroll up to wizard
+  const wizardEl = document.querySelector('.booking-wizard');
+  if (wizardEl) {
+    const offset = 100;
+    const wizardPosition = wizardEl.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: wizardPosition - offset, behavior: 'smooth' });
+  }
+
   // Update step indicators
   const stepEls = document.querySelectorAll('.wizard-step');
   const lineEls = document.querySelectorAll('.wizard-step-line');
