@@ -782,13 +782,14 @@ section {
 }
 
 .hours-table td {
-  padding: 6px 0;
+  padding: 12px 0;
   font-size: 15px;
   border-bottom: 1px solid var(--border);
 }
 
 .hours-table td:first-child {
   color: var(--muted);
+  padding-right: 32px;
 }
 
 .hours-table td:last-child {
